@@ -385,7 +385,7 @@ ISR(INT6_vect) {  // for INT6 interrupt from RTC alarm-low signal pin D7
   }
 
 //====================================================================================
-void clearClockTrigger()
+void clearClockTrigger() // from http://forum.arduino.cc/index.php?topic=109062.0
 {
   Wire.beginTransmission(0x68);   //Tell devices on the bus we are talking to the DS3231
   Wire.write(0x0F);               //Tell the device which address we want to read or write
