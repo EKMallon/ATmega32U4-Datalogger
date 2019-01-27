@@ -467,23 +467,6 @@ int getRailVoltage()    // from http://forum.arduino.cc/index.php/topic,38119.0.
     ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
   #endif 
 
-/*
-#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
-    // For mega boards
-    // const long InternalReferenceVoltage = 1100L;  // Adjust this value to your boards specific internal BG voltage x1000
-    // REFS1 REFS0          --> 0 1, AVcc internal ref.
-    // MUX4 MUX3 MUX2 MUX1 MUX0  --> 11110 1.1V (VBG)
-    ADMUX = (0 << REFS1) | (1 << REFS0) | (0 << ADLAR) | (1 << MUX4) | (1 << MUX3) | (1 << MUX2) | (1 << MUX1) | (0 << MUX0);
-#else
-    // For 168/328 boards
-    // const long InternalReferenceVoltage = 1100L;
-    // Adust this value to your boards specific internal BG voltage x1000
-    // REFS1 REFS0          --> 0 1, AVcc internal ref.
-    // MUX3 MUX2 MUX1 MUX0  --> 1110 1.1V (VBG)
-    ADMUX = (0 << REFS1) | (1 << REFS0) | (0 << ADLAR) | (1 << MUX3) | (1 << MUX2) | (1 << MUX1) | (0 << MUX0);
-#endif
-
-*/
     delay(1);  // voltage droop/recover from pulse load in lithiums takes >10ms, so this delay is ok  http://data.energizer.com/pdfs/l91.pdf
     // Start a conversion
     ADCSRA |= _BV( ADSC );
